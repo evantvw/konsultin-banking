@@ -11,7 +11,10 @@ const Sidebar: FC<SiderbarProps> = ({ user }) => {
   return (
     <section className="sidebar">
       <nav className="flex flex-col gap-4">
-        <Link href={"/"} className="mb-12 cursor-pointer gap-2 items-center flex">
+        <Link
+          href={"/"}
+          className="mb-12 cursor-pointer gap-2 items-center flex"
+        >
           <Image
             src={"/icons/logo.svg"}
             width={34}
@@ -22,7 +25,8 @@ const Sidebar: FC<SiderbarProps> = ({ user }) => {
           <h1 className="sidebar-logo">Konsultin</h1>
         </Link>
         {sidebarLinks.map((item) => {
-          const isActive = pathName.startsWith(item.route);
+          const isActive =
+            pathName === item.route || pathName.startsWith(`${item.route}/`);
           return (
             <Link
               href={item.route}
